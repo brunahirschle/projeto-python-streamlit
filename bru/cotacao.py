@@ -8,8 +8,9 @@ def buscar_cotacao(moeda_base, moeda_destino):
     cotacao = float(dados[cambio]['bid'])
     return cotacao
 
-
-cotacao = buscar_cotacao('USD', 'BRL')
+moeda_base = 'USD'
+moeda_destino = 'BRL'
+cotacao = buscar_cotacao(moeda_base, moeda_destino)
 
 def converter(valor, cotacao):
     return valor*cotacao 
@@ -19,16 +20,17 @@ resultado = converter(valor1, cotacao)
 
 historico = []
 
-def registrar_historico(moeda, valor, resultado):
+def registrar_historico(moeda_base, moeda_destino, valor, resultado):
     registro = {
-                'moeda': moeda,
+                'moeda_base': moeda_base,
+                'moeda_destino': moeda_destino,
                 'valor': valor,
                 'resultado': resultado
                 }
     historico.append(registro)
     
 
-registrar_historico('USD-BRL', valor1, resultado)
+registrar_historico(moeda_base, moeda_destino, valor1, resultado)
 for registro in historico:
     print(registro)
 
