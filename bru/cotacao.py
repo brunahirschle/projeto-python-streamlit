@@ -1,7 +1,7 @@
 import requests
 
 def buscar_cotacao(moeda_base, moeda_destino):
-    url_base = 'https://economia.awesomeapi.com.br/json/last/USD-BRL'
+    url_base = f'https://economia.awesomeapi.com.br/json/last/{moeda_base}-{moeda_destino}'
     resposta = requests.get(url_base)
     dados = resposta.json()
     cambio = moeda_base + moeda_destino
